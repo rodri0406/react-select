@@ -1,5 +1,11 @@
 # react-select
 
+## 3.2.0
+
+### Minor Changes
+
+- [72f6036f](https://github.com/JedWatson/react-select/commit/72f6036fa6f425837c8c2326bf91dff7bd7f6147) [#4306](https://github.com/JedWatson/react-select/pull/4306) Thanks [@bladey](https://github.com/bladey)! - Remove duplicate prop createOptionPosition
+
 ## 3.1.1
 
 ### Patch Changes
