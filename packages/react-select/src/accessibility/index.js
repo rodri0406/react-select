@@ -17,15 +17,15 @@ export const instructionsAriaMessage = (
   const { isSearchable, isMulti, label, isDisabled } = context;
   switch (event) {
     case 'menu':
-      return `Use Up and Down to choose options${isDisabled ? '' : ', press Enter to select the currently focused option'}, press Escape to exit the menu, press Tab to select the option and exit the menu.`;
+      return `Use Arriba y Abajo para elegir opciones${isDisabled ? '' : ', presione Enter para seleccionar la opción actualmente enfocada'}, presione Escape para salir del menú, presione Tab para seleccionar la opción y salir del menú.`;
     case 'input':
-      return `${label ? label : 'Select'} is focused ${
-        isSearchable ? ',type to refine list' : ''
-        }, press Down to open the menu, ${
-        isMulti ? ' press left to focus selected values' : ''
+      return `${label ? label : 'Seleccione'} Está enfocado ${
+        isSearchable ? ',escriba para refinar la lista' : ''
+        }, presione Abajo para abrir el menú, ${
+        isMulti ? ' presione hacia la izquierda para enfocar los valores seleccionados' : ''
         }`;
     case 'value':
-      return 'Use left and right to toggle between focused values, press Backspace to remove the currently focused value';
+      return 'Use la izquierda y la derecha para alternar entre los valores enfocados, presione Retroceso para eliminar el valor enfocado actualmente';
   }
 };
 
@@ -39,9 +39,9 @@ export const valueEventAriaMessage = (
     case 'deselect-option':
     case 'pop-value':
     case 'remove-value':
-      return `option ${value}, deselected.`;
+      return `opcion ${value}, deseleccionada.`;
     case 'select-option':
-      return isDisabled ? `option ${value} is disabled. Select another option.` : `option ${value}, selected.`;
+      return isDisabled ? `opcion ${value} está desactivado. Seleccione otra opción.` : `opcion ${value}, seleccionada.`;
   }
 };
 
@@ -54,9 +54,9 @@ export const valueFocusAriaMessage = ({
   getOptionLabel: (option: OptionType) => string,
   selectValue: OptionsType,
 }) =>
-  `value ${getOptionLabel(focusedValue)} focused, ${selectValue.indexOf(
+  `valor ${getOptionLabel(focusedValue)} enfocado, ${selectValue.indexOf(
     focusedValue
-  ) + 1} of ${selectValue.length}.`;
+  ) + 1} de ${selectValue.length}.`;
 
 export const optionFocusAriaMessage = ({
   focusedOption,
@@ -67,9 +67,9 @@ export const optionFocusAriaMessage = ({
   getOptionLabel: (option: OptionType) => string,
   options: OptionsType,
 }) =>
-  `option ${getOptionLabel(focusedOption)} focused${focusedOption.isDisabled ? ' disabled' : ''}, ${options.indexOf(
+  `opcion ${getOptionLabel(focusedOption)} enfocado${focusedOption.isDisabled ? ' deshabilitado' : ''}, ${options.indexOf(
     focusedOption
-  ) + 1} of ${options.length}.`;
+  ) + 1} de ${options.length}.`;
 
 export const resultsAriaMessage = ({
   inputValue,
@@ -79,5 +79,5 @@ export const resultsAriaMessage = ({
   screenReaderMessage: string,
 }) =>
   `${screenReaderMessage}${
-  inputValue ? ' for search term ' + inputValue : ''
+  inputValue ? ' para el término de búsqueda ' + inputValue : ''
   }.`;
